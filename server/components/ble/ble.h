@@ -21,21 +21,21 @@ typedef enum e_ble_profile_ids
     BLE_PROFILE_ID_MAX,
 } e_ble_profile_ids_t;
 
-/* ==================== Service example write characcteristics enums ==================== */
+/* ==================== Service example write characteristics enums ==================== */
 typedef enum e_ble_example_service_write_char_descriptor
 {
     EXAMPLE_SERVICE_WRITE_CHAR_DESCRIPTOR_1,
     EXAMPLE_SERVICE_WRITE_CHAR_DESCRIPTOR_MAX,
 } e_ble_example_service_write_char_descriptor_t;
 
-/* ==================== Service example read characcteristics enums ==================== */
+/* ==================== Service example read characteristics enums ==================== */
 typedef enum e_ble_example_service_read_char_descriptor
 {
     EXAMPLE_SERVICE_READ_CHAR_DESCRIPTOR_1,
     EXAMPLE_SERVICE_READ_CHAR_DESCRIPTOR_MAX,
 } e_ble_example_service_read_char_descriptor_t;
 
-/* ==================== Service example characcteristics enums ==================== */
+/* ==================== Service example characteristics enums ==================== */
 typedef enum e_ble_example_char_ids
 {
     EXAMPLE_CHAR_ID_WRITE,
