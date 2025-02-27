@@ -23,6 +23,7 @@
 #### Example service
 
 1. **UUID definitions**
+
     Services, characteristics and descriptors requires a universal unique identifier(UUID); this helps to distinguish the BLE attributes during communications. Here, in this example, 128-bit UUIDs are used
     ```c
     // UUID for example service
@@ -37,7 +38,8 @@
     #define BLE_EXAMPLE_SERVICE_READ_CHAR_DESCRIPTOR_1_UUID {0x9c, 0x54, 0x8e, 0x0c, 0xde, 0x1b, 0x44, 0x3b, 0x8d, 0x59, 0x6e, 0x98, 0x15, 0x03, 0x49, 0x0c}
 
     ```
-2. **Profile/Service ID definition and instance table**
+2. **Profile/Service ID definition and instance table:**
+
     Each of the profiles/services are registered using an id [0 .... (2<sup>16</sup>-1)] as an app; so an enum is defined for keeping profile ids in check
     ```c
     typedef enum e_ble_profile_ids
@@ -89,7 +91,8 @@
         },
     };
     ```
-3. **Characteristics instance table**
+3. **Characteristics instance table:**
+
     Characteristics are linked to a specific service using `characteristics` member of the service instance structure.
     `characteristics_len` holds the number of charcteristics and `characteristics_added` member holds the index of the characteristics that will be added to the BLE attribute database next.
     An enum is defined to index the characteristics for a service
@@ -150,7 +153,8 @@
         },
     };
     ```
-4. **Descriptor instance table**
+4. **Descriptor instance table:**
+
     Descriptors are linked to a specific characteristic using `descriptors` member of the characteristic instance structure.
     `descriptors_len` holds the number of charcteristics and `descriptors_added` member holds the index of the descriptors that will be added to the BLE attribute database next.
     Enums per characteristics are created to keep track of descriptors
@@ -218,7 +222,8 @@
     ```
 
 ### Example code flow
-1. **Start bluetooth and bluedriod stack**
+1. **Start bluetooth and bluedriod stack:**
+
     1. Initialize nvs flash
         ```c
         ret = nvs_flash_init();
@@ -278,7 +283,8 @@
             ESP_LOGE(BLE_TAG, "config adv data failed, error code = %s", esp_err_to_name(ret));
         }
         ```
-2. **Registration, creation and addition of service, characteristics and descriptors**
+2. **Registration, creation and addition of service, characteristics and descriptors:**
+
     After the BLE service/profile is registered, the registration of attrubutes are handled in GATTS callback when ESP_GATTS_REG_EVT event is triggered on `esp_ble_gatts_app_register` function call.
     1. ESP_GATTS_REG_EVT
         1. Service is provided with the an interface number as `gatts_if` wich will be stored in service instance struct.
@@ -474,7 +480,8 @@
             break;
         }
         ```
-3. **BLE GATTS event handling**
+3. **BLE GATTS event handling:**
+
     Since not all of the GATTS events are required to be processed on the service callback, only `ESP_GATTS_CONNECT_EVT`, `ESP_GATTS_DISCONNECT_EVT`, `ESP_GATTS_READ_EVT` and `ESP_GATTS_WRITE_EVT` events are passed to the service callback. However, events can be passed to the callback as per the requirement.
     Following is the code for example service callback handler
     ```c
